@@ -12,6 +12,7 @@ import {
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
+import NutritionLabel from "./NutritionLabel";
 
 function App() {
   return (
@@ -73,6 +74,14 @@ function App() {
       </Chart>
       <div className = "health-index">
         <h1>Health Index</h1>
+
+        {/* need work */}
+        <NutritionLabel>Vitamin A</NutritionLabel>
+        <NutritionLabel>Vitamin D</NutritionLabel>
+        <NutritionLabel>Calcium</NutritionLabel>
+        <NutritionLabel>Potassium</NutritionLabel>
+
+        {/* TODO replace the below divs with NutritionLabel components */}
         <div className = "wrapper">
           <div className = "legend1"></div>
           <p><b>Vitamin A</b></p>
@@ -89,6 +98,7 @@ function App() {
           <div className = "legend4"></div>
           <p><b>Potassium</b></p>
         </div>
+
       </div>
       <div className = "Food">
         <h1>Recommended Foods</h1>
