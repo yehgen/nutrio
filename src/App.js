@@ -76,10 +76,10 @@ function App() {
         <h1>Health Index</h1>
 
         {/* need work */}
-        <NutritionLabel>Vitamin A</NutritionLabel>
-        <NutritionLabel>Vitamin D</NutritionLabel>
-        <NutritionLabel>Calcium</NutritionLabel>
-        <NutritionLabel>Potassium</NutritionLabel>
+        <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
+        <NutritionLabel legend="legend2" nutrient="Vitamin D"></NutritionLabel>
+        <NutritionLabel legend="legend3" nutrient="Calcium"></NutritionLabel>
+        <NutritionLabel legend="legend4" nutrient="Potassium"></NutritionLabel>
 
         {/* TODO replace the below divs with NutritionLabel components */}
         <div className = "wrapper">

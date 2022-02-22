@@ -5,8 +5,8 @@ import React from "react";
 function NutritionLabel(props) {
   return (
     <div className="wrapper">
-      <div className="legend1"></div>
-      <p className="nutrient">{props.nutrient}</p>
+      <div className={props.legend}></div>
+      <p className="nutrient"><strong>{props.nutrient}</strong></p>
     </div>
   );
 }
