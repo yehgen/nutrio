@@ -15,25 +15,22 @@ import ReactDOM from 'react-dom';
 import { Link, BrowserRouter, Routes, Route } from "react-router-dom"
 
 // Components
-import Button from '@mui/material/Button';
-import NutritionLabel from "./NutritionLabel";
-import Main from './components/Main';
-import AboutPage from './components/AboutPage';
-import OtherPage from './components/OtherPage';
+// import Button from '@mui/material/Button';
+// import NutritionLabel from "./NutritionLabel";
+
 import Home from "./pages/Home"
-import About from "./pages/About"
+import Food from "./pages/Food"
 import Layout from "./pages/Layout"
 import Err from "./pages/Err"
 
 function Router() {
   return (
-    // TODO: Style Navigation
-    <div className = "Nav">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}></Route>
-            <Route path="about" element={<About/>}></Route>
+            <Route path="food" element={<Food/>}></Route>
             <Route path="*" element={<Err/>}></Route>
           </Route>
         </Routes>

@@ -1,3 +1,4 @@
+// main page dashboard
 import '../App.css';
 import {
   // main component
@@ -22,7 +23,7 @@ const Home = () => {
   return (
     <div className = "App">
       <div className = "title">
-        <h1>Hello, Name!</h1>
+        <h1>Hello, Brock!</h1>
       </div>
       <Chart className = "health-chart"
         width={250}
@@ -78,6 +79,7 @@ const Home = () => {
       </Chart>
       <div className = "health-index">
         <h1>Summary</h1>
+
         <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
         <NutritionLabel legend="legend2" nutrient="Vitamin D"></NutritionLabel>
         <NutritionLabel legend="legend3" nutrient="Calcium"></NutritionLabel>
