@@ -20,55 +20,28 @@ function App() {
       <div className = "title">
         <h1>Dashboard</h1>
       </div>
-      <Chart className = "health-chart"
-        width={250}
-        height={250}
+      <Chart
+        height={400}
         series={[
           {
             data: [
               1,
               2,
-              3,
               4
-            ]
-          },
-          {
-            data: [
-              5,
-              7,
-              11
-            ]
-          },
-          {
-            data: [
-              13,
-              17,
-              19
             ]
           }
         ]}
-        minY={undefined}
+        width={600}
       >
         <Transform
           method={[
             'transpose',
-            'stackNormalized'
+            'stack'
           ]}
         >
           <Pies
-            colors="category10"
+            className="pie"
             combined
-            innerRadius="33%"
-            padAngle={0.025}
-            cornerRadius={5}
-            innerPadding={5}
-            pieAttributes={{
-              onMouseLeave: function noRefCheck(){},
-              onMouseMove: function noRefCheck(){}
-            }}
-            pieStyle={{
-              opacity: 0.75
-            }}
           />
         </Transform>
       </Chart>
@@ -79,10 +52,9 @@ function App() {
         <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
         <NutritionLabel legend="legend2" nutrient="Vitamin D"></NutritionLabel>
         <NutritionLabel legend="legend3" nutrient="Calcium"></NutritionLabel>
-        <NutritionLabel legend="legend4" nutrient="Potassium"></NutritionLabel>
 
         {/* TODO replace the below divs with NutritionLabel components */}
-        <div className = "wrapper">
+        {/*<div className = "wrapper">
           <div className = "legend1"></div>
           <p><b>Vitamin A</b></p>
         </div>
@@ -97,7 +69,7 @@ function App() {
         <div className = "wrapper">
           <div className = "legend4"></div>
           <p><b>Potassium</b></p>
-        </div>
+        </div>*/}
 
       </div>
       <div className = "Food">
