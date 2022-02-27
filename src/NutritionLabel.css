@@ -3,7 +3,8 @@
 .legend1 {
   width: 1rem;
   height: 1rem;
-  background-color: orange;
+  background-color: red;
+  opacity: 0.75;
   margin-bottom: 0.25rem;
   border-radius: 100%;
   margin-right: 1rem;
@@ -12,7 +13,8 @@
 .legend2 {
   width: 1rem;
   height: 1rem;
-  background-color: royalblue;
+  background-color: green;
+  opacity: 0.75;
   margin-bottom: 0.25rem;
   border-radius: 100%;
   margin-right: 1rem;
@@ -21,7 +23,17 @@
 .legend3 {
   width: 1rem;
   height: 1rem;
-  background-color: lightblue;
+  background-color: royalblue;
+  opacity: 0.75;
+  margin-bottom: 0.25rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.legend4 {
+  width: 1rem;
+  height: 1rem;
+  background-color: orange;
   margin-bottom: 0.25rem;
   border-radius: 100%;
   margin-right: 1rem;
