@@ -30,6 +30,22 @@
   align-items: center;
 }
 
+.head {
+  padding: 0.5rem 0.5rem 0.5rem 16rem;
+  background-color: #fff;
+}
+
+.tabs {
+  background-color: #3576CB;
+  display: flex;
+  flex-direction: row;
+  padding: 0rem 0rem 0rem 15rem;
+}
+
+.navButton {
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem !important;
+}
+
 .health-chart{
   margin-top: 0rem;
 }
@@ -37,6 +53,14 @@
 .title {
   margin-top: 1.5rem;
   font-size: 1.75rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nutrioHead {
+  color: #1a1b1f;
 }
 
 .health-index {
