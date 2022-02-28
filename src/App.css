@@ -30,6 +30,16 @@
   align-items: center;
 }
 
+/* for pages with left-aligned content rather than center*/
+.App-left {
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  margin: 0rem 15rem 0rem 15rem;
+}
+
 .head {
   padding: 0.5rem 0.5rem 0.5rem 16rem;
   background-color: #fff;
