@@ -10,67 +10,9 @@ import Button from '@mui/material/Button';
 import FoodList from "../FoodList";
 
 const Food = () => {
-  const [food, setFood] = useState([
-      {
-        "name": "Strawberry",
-        "serving": "90g",
-        "calories": "29",
-        "carbohydrates": "6.9g",
-        "fat": "0.3g",
-        "protein": "0.6g",
-        "sodium": "0.9mg",
-        "potassium": "138mg",
-        "vitamin A": "0.2%",
-        "vitamin C": "88%",
-        "calcium": "1.1%",
-        "iron": "2.1%",
-        "id": "1"
-      },
-      {
-        "name": "Strawberry Jam",
-        "serving": "90g",
-        "calories": "29",
-        "carbohydrates": "6.9g",
-        "fat": "0.3g",
-        "protein": "0.6g",
-        "sodium": "0.9mg",
-        "potassium": "138mg",
-        "vitamin A": "0.2%",
-        "vitamin C": "88%",
-        "calcium": "1.1%",
-        "iron": "2.1%",
-        "id": "2"
-      },
-      {
-        "name": "Apple",
-        "serving": "90g",
-        "calories": "29",
-        "carbohydrates": "6.9g",
-        "fat": "0.3g",
-        "protein": "0.6g",
-        "sodium": "0.9mg",
-        "potassium": "138mg",
-        "vitamin A": "0.2%",
-        "vitamin C": "88%",
-        "calcium": "1.1%",
-        "iron": "2.1%",
-        "id": "3"
-      }
-  ])
-  const [inputError, setInputError] = useState(false)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (food == "") {
-      setInputError(true);
-    }
-    if (food) {
-      setInputError(false)
-      // setFood(""); not resetting input field because a user may want to specify their search
-      // if their keyword(s) do not find relevant information (i.e. strawberry and strawberry jam)
-      console.log(food);
-    }
-  }
+  const [foodData, setFoodData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);
 
   // using JSON Server for data sourcing temporarily
   // npx json-server --watch data/food.json --port 8000
@@ -81,31 +23,68 @@ const Food = () => {
       })
       .then(data => {
         console.log(data);
-        setFood(data)
+        setFoodData(data)
       })
-  }, []); // useEffect will run each time [food] changes
-  // }, [food]);
+  }, []);
+  // }, [food]); // useEffect will run each time [food] changes
+
+  const searchData = (value) => {
+    setSearchTerm(value)
+    if (searchTerm !== '') {
+      const filteredData = foodData.filter((item) => {
+        return Object.values(item).join('').toLowerCase().includes(searchTerm.toLowerCase())
+      })
+      setFilteredResults(filteredData)
+    }
+    else {
+      setFilteredResults(foodData)
+    }
+}
 
   return (
   <div className="App-left">
     <h1>Add Food Intake</h1>
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form noValidate autoComplete="off">
       <div className="input-field">
         <TextField
-          onChange={(e) => setFood(e.target.value)}
+          // onChange={(e) => setFood(e.target.value)}
+          onChange={(e) => searchData(e.target.value)}
           id="standard-basic"
           label="food"
           variant="standard"
           fullWidth
-          error={inputError}
+          // error={inputError}
         />
-        <Button variant="contained" onClick={handleSubmit}>Search</Button>
+        <Button variant="contained">Search</Button>
       </div> 
     </form>
     
     <div>
-      {/* {food && <FoodList food={food} title="Food!" />} */}
-      <FoodList food={food} />
+      {searchTerm.length > 1 ? (
+        filteredResults.map((item) => {
+          return (
+            <div>
+              {item.name}
+              {item.serving}
+            </div>
+          )
+        })
+      ) : (
+        foodData.map((item) => {
+          return (
+            <div>
+              {item.name}
+              {item.serving}
+            </div>
+          )
+        })
+      )}
+      <FoodList food={foodData} />
+      {/* only create a FoodList when food is set, otherwise show nothing when food === null */}
+      {/* {food && <FoodList food={food} />} */}
+
+      {/* the following FoodList returns a list of items containing the keyterm */}
+      {/* <FoodList food={food.filter((food) => food.name.toLowerCase().includes("straw"))} /> */}
     </div>
   </div>
   );
