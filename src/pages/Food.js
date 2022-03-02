@@ -1,7 +1,7 @@
 // for searching or tracking food items
 import '../App.css';
 import '../Food.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as React from 'react';
 
 // Components
@@ -19,11 +19,18 @@ const Food = () => {
     }
     if (food) {
       setInputError(false)
-      // setFood("");
+      // setFood(""); not resetting input field because a user may want to specify their search
+      // if their keyword(s) do not find relevant information (i.e. strawberry and strawberry jam)
       console.log(food);
-      
     }
   }
+
+  // using JSON Server for data sourcing temporarily
+  // npx json-server --watch data/food.json --port 8000
+  useEffect(() => {
+    console.log("use effect");
+    console.log(food);
+  }, [food]); // useEffect will run each time [food] changes
 
   return (
   <div className="App-left">

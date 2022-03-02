@@ -1,0 +1,46 @@
+{
+  "foods": [
+    {
+      "name": "Strawberry",
+      "serving": "90g",
+      "calories": "29",
+      "carbohydrates": "6.9g",
+      "fat": "0.3g",
+      "protein": "0.6g",
+      "sodium": "0.9mg",
+      "potassium": "138mg",
+      "vitamin A": "0.2%",
+      "vitamin C": "88%",
+      "calcium": "1.1%",
+      "iron": "2.1%"
+    },
+    {
+      "name": "Strawberry Jam",
+      "serving": "90g",
+      "calories": "29",
+      "carbohydrates": "6.9g",
+      "fat": "0.3g",
+      "protein": "0.6g",
+      "sodium": "0.9mg",
+      "potassium": "138mg",
+      "vitamin A": "0.2%",
+      "vitamin C": "88%",
+      "calcium": "1.1%",
+      "iron": "2.1%"
+    },
+    {
+      "name": "Apple",
+      "serving": "90g",
+      "calories": "29",
+      "carbohydrates": "6.9g",
+      "fat": "0.3g",
+      "protein": "0.6g",
+      "sodium": "0.9mg",
+      "potassium": "138mg",
+      "vitamin A": "0.2%",
+      "vitamin C": "88%",
+      "calcium": "1.1%",
+      "iron": "2.1%"
+    }
+  ]
+}
