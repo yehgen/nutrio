@@ -7,9 +7,56 @@ import * as React from 'react';
 // Components
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import FoodList from "../FoodList";
 
 const Food = () => {
-  const [food, setFood] = useState("")
+  const [food, setFood] = useState([
+      {
+        "name": "Strawberry",
+        "serving": "90g",
+        "calories": "29",
+        "carbohydrates": "6.9g",
+        "fat": "0.3g",
+        "protein": "0.6g",
+        "sodium": "0.9mg",
+        "potassium": "138mg",
+        "vitamin A": "0.2%",
+        "vitamin C": "88%",
+        "calcium": "1.1%",
+        "iron": "2.1%",
+        "id": "1"
+      },
+      {
+        "name": "Strawberry Jam",
+        "serving": "90g",
+        "calories": "29",
+        "carbohydrates": "6.9g",
+        "fat": "0.3g",
+        "protein": "0.6g",
+        "sodium": "0.9mg",
+        "potassium": "138mg",
+        "vitamin A": "0.2%",
+        "vitamin C": "88%",
+        "calcium": "1.1%",
+        "iron": "2.1%",
+        "id": "2"
+      },
+      {
+        "name": "Apple",
+        "serving": "90g",
+        "calories": "29",
+        "carbohydrates": "6.9g",
+        "fat": "0.3g",
+        "protein": "0.6g",
+        "sodium": "0.9mg",
+        "potassium": "138mg",
+        "vitamin A": "0.2%",
+        "vitamin C": "88%",
+        "calcium": "1.1%",
+        "iron": "2.1%",
+        "id": "3"
+      }
+  ])
   const [inputError, setInputError] = useState(false)
 
   const handleSubmit = (e) => {
@@ -28,9 +75,16 @@ const Food = () => {
   // using JSON Server for data sourcing temporarily
   // npx json-server --watch data/food.json --port 8000
   useEffect(() => {
-    console.log("use effect");
-    console.log(food);
-  }, [food]); // useEffect will run each time [food] changes
+    fetch("http://localhost:8000/foods")
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        console.log(data);
+        setFood(data)
+      })
+  }, []); // useEffect will run each time [food] changes
+  // }, [food]);
 
   return (
   <div className="App-left">
@@ -48,6 +102,11 @@ const Food = () => {
         <Button variant="contained" onClick={handleSubmit}>Search</Button>
       </div> 
     </form>
+    
+    <div>
+      {/* {food && <FoodList food={food} title="Food!" />} */}
+      <FoodList food={food} />
+    </div>
   </div>
   );
 }
