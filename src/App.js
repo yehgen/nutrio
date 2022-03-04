@@ -20,6 +20,7 @@ import { Link, BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home"
 import Food from "./pages/Food"
+import User from "./pages/User"
 import Layout from "./pages/Layout"
 import Err from "./pages/Err"
 
@@ -31,6 +32,7 @@ function Router() {
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}></Route>
             <Route path="food" element={<Food/>}></Route>
+            <Route path="user" element={<User/>}></Route>
             <Route path="*" element={<Err/>}></Route>
           </Route>
         </Routes>
