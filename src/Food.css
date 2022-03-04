@@ -1,6 +1,33 @@
 .input-field {
-  width: 50rem;
+  width: 60rem;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0;
+}
+
+.food-card {
+  margin-top: 1rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  padding: 1rem;
+}
+
+.food-card:hover {
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.food-vit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-vit > p {
+  padding: 0;
+  margin: 0;
 }

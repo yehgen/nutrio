@@ -1,13 +1,14 @@
 // for searching or tracking food items
 import '../App.css';
 import '../Food.css';
+import '../NutritionLabel.css';
+
 import { useState, useEffect } from "react";
 import * as React from 'react';
 
 // Components
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import FoodList from "../FoodList";
 
 const Food = () => {
   const [foodData, setFoodData] = useState([]);
@@ -22,21 +23,19 @@ const Food = () => {
         return res.json()
       })
       .then(data => {
-        console.log(data);
         setFoodData(data)
       })
   }, []);
-  // }, [food]); // useEffect will run each time [food] changes
+  // }, [foodData]); // useEffect will run each time [foodData] changes
 
   const searchData = (value) => {
     setSearchTerm(value)
     if (searchTerm !== '') {
       const filteredData = foodData.filter((item) => {
-        return Object.values(item).join('').toLowerCase().includes(searchTerm.toLowerCase())
+        return Object.values(item.name).join('').toLowerCase().includes(searchTerm.toLowerCase())
       })
       setFilteredResults(filteredData)
-    }
-    else {
+    } else {
       setFilteredResults(foodData)
     }
 }
@@ -47,44 +46,46 @@ const Food = () => {
     <form noValidate autoComplete="off">
       <div className="input-field">
         <TextField
-          // onChange={(e) => setFood(e.target.value)}
           onChange={(e) => searchData(e.target.value)}
           id="standard-basic"
-          label="food"
+          label="Search foods"
           variant="standard"
           fullWidth
-          // error={inputError}
         />
-        <Button variant="contained">Search</Button>
+        {/* <Button variant="contained">Search</Button> */}
       </div> 
     </form>
     
+    {/* componentize in the future */}
     <div>
       {searchTerm.length > 1 ? (
+        // this returns results when the search bar is populated
         filteredResults.map((item) => {
           return (
-            <div>
-              {item.name}
-              {item.serving}
+            <div className="food-card" key={item.id}>
+              <h2>{item.name}</h2>
+              Serving size: {item.serving}
+              <div className="food-vit">
+                <div className="legend1"></div>
+                <p>{item.vitaminA}</p>
+              </div>
+              <div className="legend2"></div>
+              <div className="legend3"></div>
+              <div className="legend4"></div>
             </div>
           )
         })
       ) : (
+        // this is the default state of items
         foodData.map((item) => {
           return (
-            <div>
-              {item.name}
-              {item.serving}
+            <div className="food-card" key={item.id}>
+              <h2>{item.name}</h2>
+              Serving size: {item.serving}
             </div>
           )
         })
       )}
-      <FoodList food={foodData} />
-      {/* only create a FoodList when food is set, otherwise show nothing when food === null */}
-      {/* {food && <FoodList food={food} />} */}
-
-      {/* the following FoodList returns a list of items containing the keyterm */}
-      {/* <FoodList food={food.filter((food) => food.name.toLowerCase().includes("straw"))} /> */}
     </div>
   </div>
   );

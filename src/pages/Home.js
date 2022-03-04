@@ -81,9 +81,9 @@ const Home = () => {
         <h1>Summary</h1>
 
         <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
-        <NutritionLabel legend="legend2" nutrient="Vitamin D"></NutritionLabel>
-        <NutritionLabel legend="legend3" nutrient="Calcium"></NutritionLabel>
-        <NutritionLabel legend="legend4" nutrient="Potassium"></NutritionLabel>
+        <NutritionLabel legend="legend2" nutrient="Vitamin B"></NutritionLabel>
+        <NutritionLabel legend="legend3" nutrient="Vitamin C"></NutritionLabel>
+        <NutritionLabel legend="legend4" nutrient="Vitamin D"></NutritionLabel>
 
       </div>
       <div className = "Food">
