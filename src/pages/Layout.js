@@ -12,6 +12,7 @@ const Layout = () => {
         <div className="tabs">
           <Link to="/"><Button variant="contained" disableElevation className="navButton">Home</Button></Link>
           <Link to="/food"><Button variant="contained" disableElevation className="navButton">Food</Button></Link>
+          <Link to="/user"><Button variant="contained" disableElevation className="navButton">User</Button></Link>
         </div>
       </nav>
       <Outlet />

@@ -25,30 +25,15 @@ const Home = () => {
       <div className = "title">
         <h1>Hello, Brock!</h1>
       </div>
-      <Chart className = "health-chart"
-        width={250}
-        height={250}
+      <Chart
+        width={300}
+        height={300}
         series={[
           {
             data: [
               1,
               2,
-              3,
               4
-            ]
-          },
-          {
-            data: [
-              5,
-              7,
-              11
-            ]
-          },
-          {
-            data: [
-              13,
-              17,
-              19
             ]
           }
         ]}
@@ -57,24 +42,10 @@ const Home = () => {
         <Transform
           method={[
             'transpose',
-            'stackNormalized'
+            'stack'
           ]}
         >
-          <Pies
-            colors="category10"
-            combined
-            innerRadius="33%"
-            padAngle={0.025}
-            cornerRadius={5}
-            innerPadding={5}
-            pieAttributes={{
-              onMouseLeave: function noRefCheck(){},
-              onMouseMove: function noRefCheck(){}
-            }}
-            pieStyle={{
-              opacity: 0.75
-            }}
-          />
+          <Pies className="pie" combined />
         </Transform>
       </Chart>
       <div className = "health-index">
