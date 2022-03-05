@@ -19,12 +19,18 @@ h2 {
 
 .food-card:hover {
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.vitamins {
+  margin-top: 1rem;
+  display: flex;
 }
 
 .food-vit {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-right: 2rem;
 }
 
 .food-vit > p {

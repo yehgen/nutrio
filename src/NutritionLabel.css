@@ -6,7 +6,7 @@
   background-color: red;
   opacity: 0.75;
   border-radius: 100%;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   }
   
 .legend2 {
@@ -15,7 +15,7 @@
   background-color: green;
   opacity: 0.75;
   border-radius: 100%;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .legend3 {
@@ -24,7 +24,7 @@
   background-color: orange;
   opacity: 0.75;
   border-radius: 100%;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .legend4 {
@@ -32,5 +32,5 @@
   height: 1rem;
   background-color: royalBlue;
   border-radius: 100%;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }

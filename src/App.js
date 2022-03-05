@@ -1,14 +1,4 @@
 import './App.css';
-import {
-  // main component
-  Chart,
-  // graphs
-  Bars, Cloud, Dots, Labels, Lines, Pies, RadialLines, Ticks, Title,
-  // wrappers
-  Layer, Animate, Transform, Handlers,
-  // helpers
-  DropShadow, Gradient
-} from 'rumble-charts';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 // where Routes = Switch

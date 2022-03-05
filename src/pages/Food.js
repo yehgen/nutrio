@@ -38,7 +38,14 @@ const Food = () => {
     } else {
       setFilteredResults(foodData)
     }
-}
+  }
+
+  const onClick = (item) => {
+    console.log("click");
+    // return (
+      console.log([item.vitaminA, item.vitaminB, item.vitaminC, item.vitaminK])
+    // )
+  };
 
   return (
   <div className="App-left">
@@ -62,16 +69,29 @@ const Food = () => {
         // this returns results when the search bar is populated
         filteredResults.map((item) => {
           return (
-            <div className="food-card" key={item.id}>
+            <div className="food-card foot-btn" key={item.id} 
+            onClick={()=>onClick(item)}>
+                          {/* onClick={onClick(item)} */}
               <h2>{item.name}</h2>
               Serving size: {item.serving}
-              <div className="food-vit">
-                <div className="legend1"></div>
-                <p>{item.vitaminA}</p>
+              <div className="vitamins">
+                <div className="food-vit">
+                  <div className="legend1"></div>
+                  <p>Vitamin A: {item.vitaminA || "0"}</p>
+                </div>
+                <div className="food-vit">
+                  <div className="legend2"></div>
+                  <p>Vitamin B: {item.vitaminB || "0%"}</p>
+                </div>
+                <div className="food-vit">
+                  <div className="legend3"></div>
+                  <p>Vitamin C: {item.vitaminC || "0%"}</p>
+                </div>
+                <div className="food-vit">
+                  <div className="legend4"></div>
+                  <p>Vitamin K: {item.vitaminK || "0%"}</p>
+                </div>
               </div>
-              <div className="legend2"></div>
-              <div className="legend3"></div>
-              <div className="legend4"></div>
             </div>
           )
         })
@@ -79,9 +99,31 @@ const Food = () => {
         // this is the default state of items
         foodData.map((item) => {
           return (
-            <div className="food-card" key={item.id}>
+            <div className="food-card" key={item.id} onClick={()=>onClick(item)}>
               <h2>{item.name}</h2>
               Serving size: {item.serving}
+              <div className="vitamins">
+                {item.vitaminA ? (
+                  <div className="legend1"></div>
+                ) : (
+                  <div></div>
+                )}
+                {item.vitaminB ? (
+                  <div className="legend2"></div>
+                ) : (
+                  <div></div>
+                )}
+                {item.vitaminC ? (
+                  <div className="legend3"></div>
+                ) : (
+                  <div></div>
+                )}
+                {item.vitaminK ? (
+                  <div className="legend4"></div>
+                ) : (
+                  <div></div>
+                )}
+              </div>
             </div>
           )
         })
