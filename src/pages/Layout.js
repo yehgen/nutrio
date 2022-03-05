@@ -1,6 +1,7 @@
 // Main structural outline with navigation
 import { Outlet, Link } from "react-router-dom";
 import Button from '@mui/material/Button';
+import '../Layout.css';
 
 const Layout = () => {
   return (

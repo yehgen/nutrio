@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+@media(max-width: 1024px) {
+    html {
+      font-size: 20px;
+    }
+  }
+  
+@media(max-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+}
+  
+@media(max-width: 480px) {
+    html {
+      font-size: 12px;
+    }
+}
+
+.container {
+    margin-left: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
