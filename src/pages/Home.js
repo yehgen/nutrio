@@ -45,36 +45,35 @@ const Home = () => {
   if (state.state.b !== undefined) {
     if (state.state.b.includes("%")) {
       const vitB = state.state.b.replace("%", "");
-      b = Number(vitB)
+      b = Number(vitB);
     }
   }
   if (state.state.c !== undefined) {
     if (state.state.c.includes("%")) {
-      const vitK = state.state.c.replace("%", "");
-      k = Number(vitK)
+      const vitC = state.state.c.replace("%", "");
+      c = Number(vitC);
     }
   }
   if (state.state.k !== undefined) {
     if (state.state.k.includes("%")) {
       const vitK = state.state.k.replace("%", "");
-      k = Number(vitK)
+      k = Number(vitK);
     }  
   }
   }
 
-
-
   // data values where letters = vitamins corresponding to the letter
   // zeros are placeholders for potential nutrients in the future
-  // digit 1 is unfilled space showing how much is left to hit   the recommended daily intake
+  // digit 1 is unfilled space showing how much is left to hit the recommended daily intake
+  // values are /50 to better reflect data visually, TBD: figure out how numbers determine visuals
   const series = [{
-    data: [k, 0, 0, 0, 0, 0, 0, 1]
+    data: [k/50, 0, 0, 0, 0, 0, 0, 1]
   }, {
-    data: [0, c, 0, 0, 0, 0, 0, 1]
+    data: [0, c/50, 0, 0, 0, 0, 0, 1]
   }, {
-    data: [0, 0, b, 0, 0, 0, 0, 1]
+    data: [0, 0, b/50, 0, 0, 0, 0, 1]
   },{
-    data: [0, 0, 0, a, 0, 0, 0, 1]
+    data: [0, 0, 0, a/50, 0, 0, 0, 1]
   }];
 
   return (
@@ -114,10 +113,10 @@ const Home = () => {
 
       <div className = "health-index">
         <h1>Summary</h1>
-        <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
-        <NutritionLabel legend="legend2" nutrient="Vitamin B"></NutritionLabel>
-        <NutritionLabel legend="legend3" nutrient="Vitamin C"></NutritionLabel>
-        <NutritionLabel legend="legend4" nutrient="Vitamin K"></NutritionLabel>
+        <NutritionLabel legend="legend1" nutrient="Vitamin A" value={a}></NutritionLabel>
+        <NutritionLabel legend="legend2" nutrient="Vitamin B" value={b}></NutritionLabel>
+        <NutritionLabel legend="legend3" nutrient="Vitamin C" value={c}></NutritionLabel>
+        <NutritionLabel legend="legend4" nutrient="Vitamin K" value={k}></NutritionLabel>
       </div>
 
       <div className="spacer"></div>

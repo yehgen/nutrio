@@ -7,7 +7,7 @@ function NutritionLabel(props) {
   return (
     <div className="wrapper">
       <div className={props.legend}></div>
-      <p className="nutrient"><strong>{props.nutrient}</strong></p>
+      <p className="nutrient"><strong>{props.nutrient}</strong>: {props.value}%</p>
     </div>
   );
 }
