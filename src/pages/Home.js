@@ -13,30 +13,70 @@ import {
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 // where Routes = Switch
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom"
+// useLocation to retrieve data from Food.js
+import { Link, BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 
 // Components
 import Button from '@mui/material/Button';
 import NutritionLabel from "../NutritionLabel";
 
-const a = 100;
-const b = 0.5;
-const c = 1;
-const k = 1;
-// data values where letters = vitamins corresponding to the letter
-// zeros are placeholders for potential nutrients in the future
-// digit 1 is unfilled space showing how much is left to hit   the recommended daily intake
-const series = [{
-  data: [k, 0, 0, 0, 0, 0, 0, 1]
-}, {
-  data: [0, c, 0, 0, 0, 0, 0, 1]
-}, {
-  data: [0, 0, b, 0, 0, 0, 0, 1]
-},{
-  data: [0, 0, 0, a, 0, 0, 0, 1]
-}];
-
 const Home = () => {
+  const state = useLocation();
+  console.log(state)
+
+  // console.log(state.state.a)
+  // console.log(typeof {state})
+
+  // console.log(state.state.a.replace("%", ""))
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let k = 0;
+
+  // on first launch, state === null so we perform no checks and retain default values
+  if (state.state !== null) {
+  // series of checks to convert data into a readable number data without the % sign
+  if (state.state.a !== undefined) {
+    if (state.state.a.includes("%")) {
+      const vitA = state.state.a.replace("%", "");
+      a = Number(vitA);
+    }
+  }
+  if (state.state.b !== undefined) {
+    if (state.state.b.includes("%")) {
+      const vitB = state.state.b.replace("%", "");
+      b = Number(vitB)
+    }
+  }
+  if (state.state.c !== undefined) {
+    if (state.state.c.includes("%")) {
+      const vitK = state.state.c.replace("%", "");
+      k = Number(vitK)
+    }
+  }
+  if (state.state.k !== undefined) {
+    if (state.state.k.includes("%")) {
+      const vitK = state.state.k.replace("%", "");
+      k = Number(vitK)
+    }  
+  }
+  }
+
+
+
+  // data values where letters = vitamins corresponding to the letter
+  // zeros are placeholders for potential nutrients in the future
+  // digit 1 is unfilled space showing how much is left to hit   the recommended daily intake
+  const series = [{
+    data: [k, 0, 0, 0, 0, 0, 0, 1]
+  }, {
+    data: [0, c, 0, 0, 0, 0, 0, 1]
+  }, {
+    data: [0, 0, b, 0, 0, 0, 0, 1]
+  },{
+    data: [0, 0, 0, a, 0, 0, 0, 1]
+  }];
+
   return (
     <div className = "App">
       <div className = "title">
@@ -71,15 +111,23 @@ const Home = () => {
           />        
         </Transform>
       </Chart>
+
       <div className = "health-index">
         <h1>Summary</h1>
-
         <NutritionLabel legend="legend1" nutrient="Vitamin A"></NutritionLabel>
         <NutritionLabel legend="legend2" nutrient="Vitamin B"></NutritionLabel>
         <NutritionLabel legend="legend3" nutrient="Vitamin C"></NutritionLabel>
         <NutritionLabel legend="legend4" nutrient="Vitamin K"></NutritionLabel>
-
       </div>
+
+      <div className="spacer"></div>
+      <div className="spacer"></div>
+
+      <div className = "health-index">
+        <h1>Daily Log</h1>
+        <NutritionLabel legend="legend1" nutrient="Apple"></NutritionLabel>
+      </div>
+
       <div className = "Food">
         <h1>Recommended Foods</h1>
         <Button variant="contained">Apricot</Button>

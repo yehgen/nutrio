@@ -22,6 +22,11 @@ h2 {
   cursor: pointer;
 }
 
+/* replace the default blue from being a link */
+.card-link {
+  color: black;
+}
+
 .vitamins {
   margin-top: 1rem;
   display: flex;

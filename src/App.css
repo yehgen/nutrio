@@ -22,7 +22,7 @@
 
 /* Style for main section of the app. */
 .App {
-  height: 100vh;
+  /* height: 100vh; */
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,6 @@ a {
 .health-index {
   display: flex;
   width: 20rem;
-  height: 10rem;
   flex-direction: column;
   align-items: center;
 }
