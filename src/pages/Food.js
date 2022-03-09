@@ -48,6 +48,7 @@ const Food = () => {
     navigate (
       path, { 
         state : {
+          name: item.name,
           a: item.vitaminA,
           b: item.vitaminB,
           c: item.vitaminC,
@@ -85,11 +86,11 @@ const Food = () => {
         // this returns results when the search bar is populated
         filteredResults.map((item) => {
           return (
-            // link back to homepage after click (MVP)
+            // link back to homepage after click
             // <Link
             //   className="card-link"
             //   to={{
-            //     pathname: "/err",
+            //     pathname: "/",
             //     state: item
             //   }}
             // >
@@ -97,46 +98,6 @@ const Food = () => {
                 className="food-card foot-btn" 
                 key={item.id} 
                 onClick={() => onClick(item)}
-              >
-                <h2>{item.name}</h2>
-                Serving size: {item.serving}
-                <div className="vitamins">
-                  <div className="food-vit">
-                    <div className="legend1"></div>
-                    <p>Vitamin A: {item.vitaminA || "0"}</p>
-                  </div>
-                  <div className="food-vit">
-                    <div className="legend2"></div>
-                    <p>Vitamin B: {item.vitaminB || "0%"}</p>
-                  </div>
-                  <div className="food-vit">
-                    <div className="legend3"></div>
-                    <p>Vitamin C: {item.vitaminC || "0%"}</p>
-                  </div>
-                  <div className="food-vit">
-                    <div className="legend4"></div>
-                    <p>Vitamin K: {item.vitaminK || "0%"}</p>
-                  </div>
-                </div>
-              </div>
-            // </Link>
-          )
-        })
-      ) : (
-        // this is the default state of items focused on minimalism
-        foodData.map((item) => {
-          return (
-            // <Link
-            //   className="card-link"
-            //   to={{
-            //     pathname: "/err",
-            //     state: item
-            //   }}
-            // >
-              <div 
-                className="food-card"
-                key={item.id} 
-                onClick={() => onClick(item)} // pass in item to reference nutritional value
               >
                 <h2>{item.name}</h2>
                 Serving size: {item.serving}
@@ -161,6 +122,46 @@ const Food = () => {
                   ) : (
                     <div></div>
                   )}
+                </div>
+              </div>
+            // </Link>
+          )
+        })
+      ) : (
+        // this is the default state of items focused on minimalism
+        foodData.map((item) => {
+          return (
+            // <Link
+            //   className="card-link"
+            //   to={{
+            //     pathname: "/",
+            //     state: item
+            //   }}
+            // >
+              <div 
+                className="food-card"
+                key={item.id} 
+                onClick={() => onClick(item)} // pass in item to reference nutritional value
+              >
+                <h2>{item.name}</h2>
+                Serving size: {item.serving}
+                <div className="vitamins">
+                  <div className="food-vit">
+                    <div className="legend1"></div>
+                    <p>Vitamin A: {item.vitaminA || "0"}</p>
+                  </div>
+                  <div className="food-vit">
+                    <div className="legend2"></div>
+                    <p>Vitamin B: {item.vitaminB || "0%"}</p>
+                  </div>
+                  <div className="food-vit">
+                    <div className="legend3"></div>
+                    <p>Vitamin C: {item.vitaminC || "0%"}</p>
+                  </div>
+                  <div className="food-vit">
+                    <div className="legend4"></div>
+                    <p>Vitamin K: {item.vitaminK || "0%"}</p>
+                  </div>
                 </div>
               </div>
             // </Link>

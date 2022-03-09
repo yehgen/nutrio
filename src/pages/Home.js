@@ -19,6 +19,7 @@ import { Link, BrowserRouter, Routes, Route, useLocation } from "react-router-do
 // Components
 import Button from '@mui/material/Button';
 import NutritionLabel from "../NutritionLabel";
+import FoodName from "../FoodName";
 
 const Home = () => {
   const state = useLocation();
@@ -32,34 +33,43 @@ const Home = () => {
   let b = 0;
   let c = 0;
   let k = 0;
+  let foodName = "";
 
   // on first launch, state === null so we perform no checks and retain default values
   if (state.state !== null) {
-  // series of checks to convert data into a readable number data without the % sign
-  if (state.state.a !== undefined) {
-    if (state.state.a.includes("%")) {
-      const vitA = state.state.a.replace("%", "");
-      a = Number(vitA);
+    // series of checks to convert data into a readable number data without the % sign
+    if (state.state.a !== undefined) {
+      if (state.state.a.includes("%")) {
+        const vitA = state.state.a.replace("%", "");
+        a = Number(vitA);
+      }
     }
-  }
-  if (state.state.b !== undefined) {
-    if (state.state.b.includes("%")) {
-      const vitB = state.state.b.replace("%", "");
-      b = Number(vitB);
+    if (state.state.b !== undefined) {
+      if (state.state.b.includes("%")) {
+        const vitB = state.state.b.replace("%", "");
+        b = Number(vitB);
+      }
     }
-  }
-  if (state.state.c !== undefined) {
-    if (state.state.c.includes("%")) {
-      const vitC = state.state.c.replace("%", "");
-      c = Number(vitC);
+    if (state.state.c !== undefined) {
+      if (state.state.c.includes("%")) {
+        const vitC = state.state.c.replace("%", "");
+        c = Number(vitC);
+      }
     }
-  }
-  if (state.state.k !== undefined) {
-    if (state.state.k.includes("%")) {
-      const vitK = state.state.k.replace("%", "");
-      k = Number(vitK);
-    }  
-  }
+    if (state.state.k !== undefined) {
+      if (state.state.k.includes("%")) {
+        const vitK = state.state.k.replace("%", "");
+        k = Number(vitK);
+      }  
+    }
+
+    // name of food to add to daily log, if selected
+    // by default this is undefined so daily log should show nothing
+    // use "let" because foodName will change in the future to populate log
+    if (state.state.name !== undefined) {
+      let foodName = state.state.name.toUpperCase();
+      console.log(foodName)
+    }
   }
 
   // data values where letters = vitamins corresponding to the letter
@@ -117,15 +127,18 @@ const Home = () => {
         <NutritionLabel legend="legend2" nutrient="Vitamin B" value={b}></NutritionLabel>
         <NutritionLabel legend="legend3" nutrient="Vitamin C" value={c}></NutritionLabel>
         <NutritionLabel legend="legend4" nutrient="Vitamin K" value={k}></NutritionLabel>
-      </div>
-
-      <div className="spacer"></div>
-      <div className="spacer"></div>
-
-      <div className = "health-index">
+       
+        <div className="spacer"></div>
+        <div className="spacer"></div>
         <h1>Daily Log</h1>
-        <NutritionLabel legend="legend1" nutrient="Apple"></NutritionLabel>
       </div>
+
+      {/* unsure why foodName is not populating, shows in console */}
+      {/* seems to not refresh foodName as an item is clicked */}
+      <p><strong>{foodName}a</strong></p>
+      <FoodName name={foodName} />
+      
+      {/* <p className="log-subhead">Vitamin A: {a}% Vitamin B: {b}% Vitamin C: {c}% Vitamin K {k}%</p> */}
 
       <div className = "Food">
         <h1>Recommended Foods</h1>

@@ -40,6 +40,10 @@
   margin: 0rem 15rem 0rem 15rem;
 }
 
+p {
+  margin: 0;
+}
+
 .head {
   padding: 0.5rem 0.5rem 0.5rem 16rem;
   background-color: #fff;
@@ -104,4 +108,11 @@ a {
 
 .spacer {
   height: 1rem;
+}
+
+.log-subhead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
